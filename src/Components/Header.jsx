@@ -4,10 +4,8 @@ import {
   Dropdown,
   DropdownDivider,
   Navbar,
-  TextInput,
 } from "flowbite-react";
 import React from "react";
-import { AiOutlineSearch } from "react-icons/ai";
 import { FaMoon, FaSun } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -34,22 +32,14 @@ const Header = () => {
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
       >
-        <span className="px-2 py-1 bg-gradient-to-r from-violet-600 via-fuchsia-700 to-pink-500 rounded-lg text-white">
-          Wedding-Wise
+        <span className="px-2 py-1  text-red-700">
+          WEDDINGWISE!!
         </span>
       </Link>
-      <Button
-        className="w-12 h-10 lg:hidden text-dark"
-        gradientDuoTone="purpleToPink"
-        outline
-        pill
-      >
-        <AiOutlineSearch />
-      </Button>
       <div className="flex gap-2 md:order-2">
         <Button
           className="w-12 h-10 hidden sm:inline"
-          gradientDuoTone="purpleToPink"
+          gradientDuoTone="pinkToOrange"
           pill
           onClick={() => dispatch(toggleTheme())}
         >
@@ -59,6 +49,7 @@ const Header = () => {
           <Dropdown
             arrowIcon={false}
             inline
+             className="font-bold bg-red-100"
             label={
               <Avatar
                 alt="user"
@@ -67,7 +58,7 @@ const Header = () => {
               />
             }
           >
-            <Dropdown.Header>
+            <Dropdown.Header >
               <span className="block text-sm">{currentuser.rest.username}</span>
             </Dropdown.Header>
             <Link to="/dashboard?tab=profile">
@@ -78,12 +69,15 @@ const Header = () => {
           </Dropdown>
         ) : (
           <Link to="/signin">
-            <Button gradientDuoTone="purpleToPink">SignIn</Button>
+            <Button gradientDuoTone="pinkToOrange">SignIn</Button>
           </Link>
         )}
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
+      <Navbar.Link active={path === "/"} as={"div"}>
+          <Link to="/">Home</Link>
+        </Navbar.Link>
         <Navbar.Link active={path === "/weddingvenues"} as={"div"}>
           <Link to="/weddingvenues">WeddingVenues</Link>
         </Navbar.Link>
@@ -102,6 +96,9 @@ const Header = () => {
 
         <Navbar.Link active={path === "/groms"} as={"div"}>
           <Link to="/groms">Grooms</Link>
+        </Navbar.Link>
+        <Navbar.Link active={path === "/about"} as={"div"}>
+          <Link to="/about">About</Link>
         </Navbar.Link>
       </Navbar.Collapse>
     </Navbar>

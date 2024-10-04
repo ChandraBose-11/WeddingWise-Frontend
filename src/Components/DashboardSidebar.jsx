@@ -25,7 +25,7 @@ const DashboardSidebar = () => {
   };
   return (
     <Sidebar className="w-full md:w-58 bg-red-100 dark:bg-black">
-      <Sidebar.Items>
+      <Sidebar.Items  className="bg-red-100">
         <Sidebar.ItemGroup className="flex flex-col gap-2">
           <Link to="/dashboard?tab=profile">
             <Sidebar.Item

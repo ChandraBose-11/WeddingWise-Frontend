@@ -12,37 +12,36 @@ const Home = () => {
   };
   return (
     <div>
-      <div className="flex flex-wrap border-2 dark:bg-black bg-red-100">
+      <div className="flex flex-wrap border-2 dark:bg-black bg-red-100 ">
+        <div className="flex justify-center items-center sm:ml-0 mt-3">
+          <img
+            className="rounded-3xl max-w-md  p-3 ml-5 h-80"
+            src="https://i.pinimg.com/736x/dc/ba/40/dcba40905d443c43f583b7281d5ed2a8.jpg"
+            alt="image description"
+          />
+        </div>
+
         <div className="flex-col ml-2 flex-grow">
-          <h1 className="font-bold text-4xl mt-10">
-            Everything you need to <br />
-            plan your event...
+          <h1 className="font-bold text-4xl mt-10 ml-4 md:p-2">
+            Every Love Story Deserves a Beautiful Wedding....
           </h1>
           <br />
-          <br />
-          <h3 className="flex">
-            Search local professionals with pricing, and more...
+          <h3 className="flex ml-5 font-semibold">
+            Perfect for an inspiration or wedding ideas section
           </h3>
-          <br />
+
           <br />
           <form>
             <TextInput
               type="text"
-              placeholder="Search Events..."
+              placeholder="Find the magic in every detail..."
               rightIcon={AiOutlineSearch}
-              className="w-72 mx-3"
+              className="w-80 mx-6"
               value={searchteam}
               onChange={(e) => setSearchteam(e.target.value)}
             />
             <br />
           </form>
-        </div>
-        <div className="flex justify-center items-center sm:ml-0 mt-3">
-          <img
-            className="rounded-full max-w-full h-auto "
-            src="https://png.pngtree.com/png-vector/20230912/ourmid/pngtree-cute-black-in-love-couple-png-image_10023144.png"
-            alt="image description"
-          />
         </div>
       </div>
       <br />
@@ -51,7 +50,7 @@ const Home = () => {
           <Link>
             <img
               className="rounded-t-lg p-5 w-80 ml-4"
-              src="https://cdn0.weddingwire.in/vendor/9118/3_2/960/jpeg/whatsapp-image-2024-09-05-at-3-06-18-pm_15_479118-172559822764198.webp"
+              src="https://i.pinimg.com/564x/c1/ba/68/c1ba6868e603d2f08de31468c3c3880c.jpg"
               alt="WeddingVenue"
             />
           </Link>

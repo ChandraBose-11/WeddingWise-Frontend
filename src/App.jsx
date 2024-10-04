@@ -43,6 +43,7 @@ import Decoration from "./Pages/Decoration";
 import Offerone from "./Pages/Offerone";
 import Offertwo from "./Pages/Offertwo";
 import Offerthree from "./Pages/Offerthree";
+import PageNotFound from "./Pages/PageNotFound";
 
 const App = () => {
   return (
@@ -60,6 +61,7 @@ const App = () => {
         <Route element={<OnlyAdminPrivateRoute />}>
           <Route path="/create-post" element={<CreatePost />} />
         </Route>
+        <Route path="*" element={<PageNotFound />} />
         {/* //WeddingVenues pages */}
         <Route path={"/weddingvenues"} element={<WeddingVenues />} />
         <Route path={"/weddingfarmhouse"} element={<WeddingFarmHouse />} />
