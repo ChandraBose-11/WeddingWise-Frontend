@@ -45,6 +45,7 @@ import Offertwo from "./Pages/Offertwo";
 import Offerthree from "./Pages/Offerthree";
 import PageNotFound from "./Pages/PageNotFound";
 
+
 const App = () => {
   return (
     <BrowserRouter>
@@ -100,6 +101,7 @@ const App = () => {
       <Route path='/groms' element={<Groms/>}/>
       <Route path="/sherwani" element={<Sherwani/>}/>
       </Routes>
+    
       <FooterCom />
     </BrowserRouter>
   );

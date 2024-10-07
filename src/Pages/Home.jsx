@@ -8,7 +8,6 @@ const Home = () => {
   const navigate = useNavigate();
   const handleSearch = (event) => {
     event.preventDefault();
-    const searchteamLower = searchteam.toLowerCase();
   };
   return (
     <div>

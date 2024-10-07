@@ -7,19 +7,8 @@ const Groms = () => {
         <div>
         <div className="flex flex-wrap border-2 dark:bg-black bg-red-100">
           <div className="flex-col ml-2 flex-grow">
-            <h1 className="font-bold text-4xl mt-10"></h1>
-            <h3 className="flex font-bold text-2xl mt-5">
-              There Are Many Plans in Wedding:-
-             
-            </h3>
+            <h1 className="font-bold text-4xl m-2">GROOMS</h1>
           </div>
-          {/* <div className="flex justify-center items-center sm:ml-0 mt-3">
-          <img
-            className="rounded-full max-w-full h-auto "
-          src=""
-          alt=""
-          />
-        </div> */}
         </div>
         <br />
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-secondary bg-red-100 p-5 dark:bg-black text-white">

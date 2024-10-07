@@ -1,21 +1,18 @@
-import React, { useState } from "react";
-import {
-  Modal,
-  ModalHeader,
-  ModalBody,
-  ModalFooter,
-  Button,
-} from "flowbite-react";
-import { Tooltip, TextInput } from "flowbite-react";
+import { Button, Modal, TextInput } from "flowbite-react";
+import { useRef, useState } from "react";
+import { AiOutlineMail, AiOutlinePhone, AiOutlineUser } from "react-icons/ai";
 import { Link } from "react-router-dom";
 
 const BridalLehenga = () => {
-  const [text] = useState("+91 1234567890");
-
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
+  const [openModal, setOpenModal] = useState(false);
+  const NameInputRef = useRef(null);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    try {
+      alert("Registor Successfully");
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div>
@@ -107,33 +104,72 @@ const BridalLehenga = () => {
             <span className="text-xl text-gray-900 font-bold dark:text-white">
               From Bridal Wear ₹40,000
             </span>
-
-            <Button onClick={toggleModal} className="sm:ml-80">
-              Request Order
-            </Button>
-            <Modal show={isOpen} onClose={toggleModal}>
-              <ModalHeader className="mb-6 bg-stone-300">
-                Enter Details
-              </ModalHeader>
-              <ModalBody>
-                <div className="relative flex items-center space-x-2 ring-offset-blue-600">
-                  <label for="Date">Contact:</label>
-                  <TextInput type="text" value={text} className="font-bold" />
-                  <br />
-                  <label for="Date">Date:</label>
-                  <input type="date" id="Date" name="Date" />
-                  <br />
-                  <Button
-                    color="primary"
-                    className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                  >
-                    Register
-                  </Button>
+            <Button onClick={() => setOpenModal(true)}>Request Pricing</Button>
+            <Modal
+              show={openModal}
+              size="md"
+              popup
+              onClose={() => setOpenModal(false)}
+              initialFocus={NameInputRef}
+            >
+              <Modal.Header />
+              <Modal.Body>
+                <div className="space-y-6">
+                  <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                    Request pricing Request pricing.
+                    <br /> Fill this form we will contact you shortly. All the
+                    information provided will be treated confidentially.
+                  </h3>
+                  <div>
+                    <TextInput
+                      id="Name"
+                      type="text"
+                      placeholder="Enter Your Name"
+                      required
+                      rightIcon={AiOutlineUser}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="email"
+                      type="text"
+                      placeholder="name@company.com"
+                      required
+                      rightIcon={AiOutlineMail}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="number"
+                      type="tel"
+                      placeholder="Contact No:"
+                      required
+                      rightIcon={AiOutlinePhone}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="date"
+                      type="date"
+                      placeholder="date:"
+                      required
+                    />
+                  </div>
+                  <div className="flex justify-center gap-4">
+                    <Button
+                      onClick={handleSubmit}
+                      size="md"
+                     gradientMonochrome="cyan"
+                      className="text-center"
+                    >
+                      Registor
+                    </Button>
+                    <Button color="failure" onClick={() => setOpenModal(false)}>
+                      Back To Page
+                    </Button>
+                  </div>
                 </div>
-              </ModalBody>
-              <ModalFooter>
-                <Button onClick={toggleModal}>Close</Button>
-              </ModalFooter>
+              </Modal.Body>
             </Modal>
           </div>
         </div>
@@ -226,33 +262,72 @@ const BridalLehenga = () => {
             <span className="text-xl text-gray-900 font-bold dark:text-white">
               From Bridal Wear ₹45,000
             </span>
-
-            <Button onClick={toggleModal} className="sm:ml-80">
-              Request Order
-            </Button>
-            <Modal show={isOpen} onClose={toggleModal}>
-              <ModalHeader className="mb-6 bg-stone-300">
-                Enter Details
-              </ModalHeader>
-              <ModalBody>
-                <div className="relative flex items-center space-x-2 ring-offset-blue-600">
-                  <label for="Date">Contact:</label>
-                  <TextInput type="text" value={text} className="font-bold" />
-                  <br />
-                  <label for="Date">Date:</label>
-                  <input type="date" id="Date" name="Date" />
-                  <br />
-                  <Button
-                    color="primary"
-                    className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                  >
-                    Register
-                  </Button>
+            <Button onClick={() => setOpenModal(true)}>Request Pricing</Button>
+            <Modal
+              show={openModal}
+              size="md"
+              popup
+              onClose={() => setOpenModal(false)}
+              initialFocus={NameInputRef}
+            >
+              <Modal.Header />
+              <Modal.Body>
+                <div className="space-y-6">
+                  <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                    Request pricing Request pricing.
+                    <br /> Fill this form we will contact you shortly. All the
+                    information provided will be treated confidentially.
+                  </h3>
+                  <div>
+                    <TextInput
+                      id="Name"
+                      type="text"
+                      placeholder="Enter Your Name"
+                      required
+                      rightIcon={AiOutlineUser}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="email"
+                      type="text"
+                      placeholder="name@company.com"
+                      required
+                      rightIcon={AiOutlineMail}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="number"
+                      type="tel"
+                      placeholder="Contact No:"
+                      required
+                      rightIcon={AiOutlinePhone}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="date"
+                      type="date"
+                      placeholder="date:"
+                      required
+                    />
+                  </div>
+                  <div className="flex justify-center gap-4">
+                    <Button
+                      onClick={handleSubmit}
+                      size="md"
+                     gradientMonochrome="cyan"
+                      className="text-center"
+                    >
+                      Registor
+                    </Button>
+                    <Button color="failure" onClick={() => setOpenModal(false)}>
+                      Back To Page
+                    </Button>
+                  </div>
                 </div>
-              </ModalBody>
-              <ModalFooter>
-                <Button onClick={toggleModal}>Close</Button>
-              </ModalFooter>
+              </Modal.Body>
             </Modal>
           </div>
         </div>
@@ -344,33 +419,72 @@ const BridalLehenga = () => {
             <span className="text-xl text-gray-900 font-bold dark:text-white">
               From Bridal Wear ₹10,000
             </span>
-
-            <Button onClick={toggleModal} className="sm:ml-80">
-              Request Order
-            </Button>
-            <Modal show={isOpen} onClose={toggleModal}>
-              <ModalHeader className="mb-6 bg-stone-300">
-                Enter Details
-              </ModalHeader>
-              <ModalBody>
-                <div className="relative flex items-center space-x-2 ring-offset-blue-600">
-                  <label for="Date">Contact:</label>
-                  <TextInput type="text" value={text} className="font-bold" />
-                  <br />
-                  <label for="Date">Date:</label>
-                  <input type="date" id="Date" name="Date" />
-                  <br />
-                  <Button
-                    color="primary"
-                    className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                  >
-                    Register
-                  </Button>
+            <Button onClick={() => setOpenModal(true)}>Request Pricing</Button>
+            <Modal
+              show={openModal}
+              size="md"
+              popup
+              onClose={() => setOpenModal(false)}
+              initialFocus={NameInputRef}
+            >
+              <Modal.Header />
+              <Modal.Body>
+                <div className="space-y-6">
+                  <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                    Request pricing Request pricing.
+                    <br /> Fill this form we will contact you shortly. All the
+                    information provided will be treated confidentially.
+                  </h3>
+                  <div>
+                    <TextInput
+                      id="Name"
+                      type="text"
+                      placeholder="Enter Your Name"
+                      required
+                      rightIcon={AiOutlineUser}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="email"
+                      type="text"
+                      placeholder="name@company.com"
+                      required
+                      rightIcon={AiOutlineMail}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="number"
+                      type="tel"
+                      placeholder="Contact No:"
+                      required
+                      rightIcon={AiOutlinePhone}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="date"
+                      type="date"
+                      placeholder="date:"
+                      required
+                    />
+                  </div>
+                  <div className="flex justify-center gap-4">
+                    <Button
+                      onClick={handleSubmit}
+                      size="md"
+                     gradientMonochrome="cyan"
+                      className="text-center"
+                    >
+                      Registor
+                    </Button>
+                    <Button color="failure" onClick={() => setOpenModal(false)}>
+                      Back To Page
+                    </Button>
+                  </div>
                 </div>
-              </ModalBody>
-              <ModalFooter>
-                <Button onClick={toggleModal}>Close</Button>
-              </ModalFooter>
+              </Modal.Body>
             </Modal>
           </div>
         </div>
@@ -472,33 +586,72 @@ const BridalLehenga = () => {
             <span className="text-xl text-gray-900 font-bold dark:text-white">
               From Bridal Wear ₹2,5000
             </span>
-
-            <Button onClick={toggleModal} className="sm:ml-80">
-              Request Order
-            </Button>
-            <Modal show={isOpen} onClose={toggleModal}>
-              <ModalHeader className="mb-6 bg-stone-300">
-                Enter Details
-              </ModalHeader>
-              <ModalBody>
-                <div className="relative flex items-center space-x-2 ring-offset-blue-600">
-                  <label for="Date">Contact:</label>
-                  <TextInput type="text" value={text} className="font-bold" />
-                  <br />
-                  <label for="Date">Date:</label>
-                  <input type="date" id="Date" name="Date" />
-                  <br />
-                  <Button
-                    color="primary"
-                    className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                  >
-                    Register
-                  </Button>
+            <Button onClick={() => setOpenModal(true)}>Request Pricing</Button>
+            <Modal
+              show={openModal}
+              size="md"
+              popup
+              onClose={() => setOpenModal(false)}
+              initialFocus={NameInputRef}
+            >
+              <Modal.Header />
+              <Modal.Body>
+                <div className="space-y-6">
+                  <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                    Request pricing Request pricing.
+                    <br /> Fill this form we will contact you shortly. All the
+                    information provided will be treated confidentially.
+                  </h3>
+                  <div>
+                    <TextInput
+                      id="Name"
+                      type="text"
+                      placeholder="Enter Your Name"
+                      required
+                      rightIcon={AiOutlineUser}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="email"
+                      type="text"
+                      placeholder="name@company.com"
+                      required
+                      rightIcon={AiOutlineMail}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="number"
+                      type="tel"
+                      placeholder="Contact No:"
+                      required
+                      rightIcon={AiOutlinePhone}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="date"
+                      type="date"
+                      placeholder="date:"
+                      required
+                    />
+                  </div>
+                  <div className="flex justify-center gap-4">
+                    <Button
+                      onClick={handleSubmit}
+                      size="md"
+                     gradientMonochrome="cyan"
+                      className="text-center"
+                    >
+                      Registor
+                    </Button>
+                    <Button color="failure" onClick={() => setOpenModal(false)}>
+                      Back To Page
+                    </Button>
+                  </div>
                 </div>
-              </ModalBody>
-              <ModalFooter>
-                <Button onClick={toggleModal}>Close</Button>
-              </ModalFooter>
+              </Modal.Body>
             </Modal>
           </div>
         </div>
@@ -597,33 +750,72 @@ const BridalLehenga = () => {
             <span className="text-xl text-gray-900 font-bold dark:text-white">
               From Bridal Wear ₹15,000
             </span>
-
-            <Button onClick={toggleModal} className="sm:ml-80">
-              Request Order
-            </Button>
-            <Modal show={isOpen} onClose={toggleModal}>
-              <ModalHeader className="mb-6 bg-stone-300">
-                Enter Details
-              </ModalHeader>
-              <ModalBody>
-                <div className="relative flex items-center space-x-2 ring-offset-blue-600">
-                  <label for="Date">Contact:</label>
-                  <TextInput type="text" value={text} className="font-bold" />
-                  <br />
-                  <label for="Date">Date:</label>
-                  <input type="date" id="Date" name="Date" />
-                  <br />
-                  <Button
-                    color="primary"
-                    className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-                  >
-                    Register
-                  </Button>
+            <Button onClick={() => setOpenModal(true)}>Request Pricing</Button>
+            <Modal
+              show={openModal}
+              size="md"
+              popup
+              onClose={() => setOpenModal(false)}
+              initialFocus={NameInputRef}
+            >
+              <Modal.Header />
+              <Modal.Body>
+                <div className="space-y-6">
+                  <h3 className="text-xl font-medium text-gray-900 dark:text-white">
+                    Request pricing Request pricing.
+                    <br /> Fill this form we will contact you shortly. All the
+                    information provided will be treated confidentially.
+                  </h3>
+                  <div>
+                    <TextInput
+                      id="Name"
+                      type="text"
+                      placeholder="Enter Your Name"
+                      required
+                      rightIcon={AiOutlineUser}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="email"
+                      type="text"
+                      placeholder="name@company.com"
+                      required
+                      rightIcon={AiOutlineMail}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="number"
+                      type="tel"
+                      placeholder="Contact No:"
+                      required
+                      rightIcon={AiOutlinePhone}
+                    />
+                  </div>
+                  <div>
+                    <TextInput
+                      id="date"
+                      type="date"
+                      placeholder="date:"
+                      required
+                    />
+                  </div>
+                  <div className="flex justify-center gap-4">
+                    <Button
+                      onClick={handleSubmit}
+                      size="md"
+                     gradientMonochrome="cyan"
+                      className="text-center"
+                    >
+                      Registor
+                    </Button>
+                    <Button color="failure" onClick={() => setOpenModal(false)}>
+                      Back To Page
+                    </Button>
+                  </div>
                 </div>
-              </ModalBody>
-              <ModalFooter>
-                <Button onClick={toggleModal}>Close</Button>
-              </ModalFooter>
+              </Modal.Body>
             </Modal>
           </div>
         </div>

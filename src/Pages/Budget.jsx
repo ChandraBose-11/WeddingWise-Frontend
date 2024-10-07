@@ -1,17 +1,9 @@
 import React, { useState } from 'react';
-import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from 'flowbite-react'
-import { TextInput } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 
 
 const Budget = () => {
-  const [text] = useState('+91 1234567890');
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleModal = () => {
-    setIsOpen(!isOpen);
-  };
 
   return (
 
@@ -35,41 +27,6 @@ const Budget = () => {
         </Link>
         <br />
         <br />
-        <Button onClick={toggleModal} >
-          Request Order
-        </Button>
-        <Modal show={isOpen} onClose={toggleModal} >
-          <ModalHeader className='mb-6 bg-stone-300'>
-            Enter Details
-          </ModalHeader>
-          <ModalBody>
-            <div className="relative flex items-center space-x-2 ring-offset-blue-600">
-              <label for="Date">Contact:</label>
-              <TextInput
-                type="text"
-                value={text}
-                className="font-bold"
-              />
-              <br />
-              <label for="Date">Date:</label>
-              <input type="date" id="Date" name="Date" />
-              <br />
-              <Button
-
-                color="primary"
-                className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-              >
-                Register
-              </Button>
-            </div>
-          </ModalBody>
-          <ModalFooter>
-            <Button onClick={toggleModal}>
-              Close
-            </Button>
-
-          </ModalFooter>
-        </Modal>
 
       </div>
 
@@ -91,41 +48,6 @@ const Budget = () => {
         </Link>
         <br />
         <br />
-        <Button onClick={toggleModal} >
-          Request Order
-        </Button>
-        <Modal show={isOpen} onClose={toggleModal} >
-          <ModalHeader className='mb-6 bg-stone-300'>
-            Enter Details
-          </ModalHeader>
-          <ModalBody>
-            <div className="relative flex items-center space-x-2 ring-offset-blue-600">
-              <label for="Date">Contact:</label>
-              <TextInput
-                type="text"
-                value={text}
-                className="font-bold"
-              />
-              <br />
-              <label for="Date">Date:</label>
-              <input type="date" id="Date" name="Date" />
-              <br />
-              <Button
-
-                color="primary"
-                className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-              >
-                Register
-              </Button>
-            </div>
-          </ModalBody>
-          <ModalFooter>
-            <Button onClick={toggleModal}>
-              Close
-            </Button>
-
-          </ModalFooter>
-        </Modal>
       </div>
 
       <div class="max-w-sm mt-10 mb-5 ml-6 mr-3 p-6 hover:bg-red-200 bg-white border border-gray-200 rounded-lg shadow  dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-black"  >
@@ -144,43 +66,6 @@ const Budget = () => {
             <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9" />
           </svg>
         </Link>
-        <br />
-        <br />
-        <Button onClick={toggleModal} >
-          Request Order
-        </Button>
-        <Modal show={isOpen} onClose={toggleModal} >
-          <ModalHeader className='mb-6 bg-stone-300'>
-            Enter Details
-          </ModalHeader>
-          <ModalBody>
-            <div className="relative flex items-center space-x-2 ring-offset-blue-600">
-              <label for="Date">Contact:</label>
-              <TextInput
-                type="text"
-                value={text}
-                className="font-bold"
-              />
-              <br />
-              <label for="Date">Date:</label>
-              <input type="date" id="Date" name="Date" />
-              <br />
-              <Button
-
-                color="primary"
-                className="px-4 py-2 text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
-              >
-                Register
-              </Button>
-            </div>
-          </ModalBody>
-          <ModalFooter>
-            <Button onClick={toggleModal}>
-              Close
-            </Button>
-
-          </ModalFooter>
-        </Modal>
       </div>
 
 

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Offerthree = () => {
   return (
     <div>
-      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-fuchsia-300 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             class="p-8 rounded-t-lg h-96 max-w-96"
@@ -83,14 +83,14 @@ const Offerthree = () => {
           </div>
           <br />
           <div class="flex items-center justify-between">
-            <span class="text-xl text-gray-900 font-light dark:text-white">
+            <span class="text-xl text-gray-900  font-bold dark:text-white">
               Rs.1,50,000
             </span>
           </div>
         </div>
       </div>
 
-      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  bg-fuchsia-300 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             class="p-8 rounded-t-lg h-96 max-w-96"
@@ -170,14 +170,14 @@ const Offerthree = () => {
           </div>
           <br />
           <div class="flex items-center justify-between">
-            <span class="text-xl text-gray-900 font-light dark:text-white">
+            <span class="text-xl text-gray-900  font-bold dark:text-white">
               From Rs.2,50,000
             </span>
           </div>
         </div>
       </div>
 
-      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  bg-fuchsia-300 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             class="p-8 rounded-t-lg h-96 max-w-96"
@@ -256,14 +256,14 @@ const Offerthree = () => {
           </div>
           <br />
           <div class="flex items-center justify-between">
-            <span class="text-xl text-gray-900 font-light dark:text-white">
+            <span class="text-xl text-gray-900  font-bold dark:text-white">
               From 450
             </span>
           </div>
         </div>
       </div>
 
-      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  bg-fuchsia-300 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             class="p-8 rounded-t-lg h-96 max-w-96"
@@ -345,7 +345,7 @@ const Offerthree = () => {
           </div>
           <br />
           <div class="flex items-center justify-between">
-            <span class="text-xl text-gray-900 font-light dark:text-white">
+            <span class="text-xl text-gray-900  font-bold dark:text-white">
               From Rs.50,000
             </span>
           </div>
