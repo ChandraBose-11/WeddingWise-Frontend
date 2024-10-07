@@ -66,7 +66,7 @@ const CreatePost = () => {
     try {
         //to convert html to content
         const strippedContent = formData.content.replace(/<[^>]+>/g,'');
-        const response = await fetch('http://localhost:5000/api/post/createpost',{
+        const response = await fetch('https://weddingwise-backend-f9kh.onrender.com/api/post/createpost',{
             method:'POST',
             headers:{
                 'Content-Type':'application/json',

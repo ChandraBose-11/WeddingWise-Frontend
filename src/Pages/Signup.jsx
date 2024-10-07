@@ -25,7 +25,7 @@ const Signup = () => {
       setLoading(true);
       setErrormessage(null);
       const response = await fetch(
-        "http://localhost:5000/api/auth/register-user",
+        "https://weddingwise-backend-f9kh.onrender.com/api/auth/register-user",
         {
           method: "POST",
           headers: {
