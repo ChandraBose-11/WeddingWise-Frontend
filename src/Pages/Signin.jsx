@@ -1,3 +1,4 @@
+
 import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
@@ -5,20 +6,16 @@ import { HiInformationCircle } from "react-icons/hi";
 import { useDispatch, useSelector } from "react-redux";
 import { signInFailure,signInStart,signInSuccess } from "../Redux/Slice/userSlice";
 import OAuth from "../Components/OAuth";
-
-
 const Signin = () => {
   const [formData, setFormData] = useState({});
  const dispatch = useDispatch();
  const {loading,error:errormessage} = useSelector((state)=>state.user)
   const navigate = useNavigate();
-
   const handleChange = (e) => {
     // console.log(e.target.value);
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
     // console.log(formData);
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (  !formData.email || !formData.password) {
@@ -27,7 +24,7 @@ const Signin = () => {
     try {
       dispatch(signInStart());
       const response = await fetch(
-        'https://weddingwise-backend-f9kh.onrender.com/api/auth/login-user',
+        'http://localhost:5000/api/auth/login-user',
         {
           method: "POST",
           headers: {
@@ -49,7 +46,6 @@ const Signin = () => {
       dispatch(signInFailure((error.message)));
     }
   };
-
   return (
     <div className="min-h-screen pt-20 bg-red-100  dark:bg-black">
       <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
@@ -125,5 +121,4 @@ const Signin = () => {
     </div>
   );
 };
-
 export default Signin;
