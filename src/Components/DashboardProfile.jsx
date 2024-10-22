@@ -107,7 +107,7 @@ const DashboardProfile = () => {
     try {
       dispatch(updateStart());
       const response = await fetch(
-        `https://weddingwise-backend-f9kh.onrender.com/api/user/update/${currentuser.rest._id}`,
+        `https://weddingwise-backend-f9kh.onrender.com/api/user/update/${currentuser._id}`,
         {
           method: "PUT",
           headers: {
@@ -141,7 +141,7 @@ const DashboardProfile = () => {
     try {
       dispatch(deleteUserStart());
       const response = await fetch(
-        `https://weddingwise-backend-f9kh.onrender.com/api/user/delete/${currentuser.rest._id}`,
+        `https://weddingwise-backend-f9kh.onrender.com/api/user/delete/${currentuser._id}`,
         {
           method: "DELETE",
           headers: {
@@ -195,7 +195,7 @@ const DashboardProfile = () => {
             />
           )}
           <img
-            src={imageFileUrl || currentuser.rest.profilePicture}
+            src={imageFileUrl || currentuser.profilePicture}
             alt="user"
             className={`rounded-full w-full h-full object-cover border-8 border-[lightgray]
               ${
@@ -215,14 +215,14 @@ const DashboardProfile = () => {
           type="text"
           id="username"
           placeholder="UserName"
-          defaultValue={currentuser.rest.username}
+          defaultValue={currentuser.username}
           onChange={handleChange}
         />
         <TextInput
           type="email"
           id="email"
           placeholder="Email"
-          defaultValue={currentuser.rest.email}
+          defaultValue={currentuser.email}
           onChange={handleChange}
         />
         <TextInput
