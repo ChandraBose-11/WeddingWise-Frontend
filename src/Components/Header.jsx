@@ -53,13 +53,13 @@ const Header = () => {
             label={
               <Avatar
                 alt="user"
-                img={currentuser.rest.profilePicture}
+                img={currentuser.profilePicture}
                 rounded
               />
             }
           >
             <Dropdown.Header >
-              <span className="block text-sm">{currentuser.rest.username}</span>
+              <span className="block text-sm">{currentuser.username}</span>
             </Dropdown.Header>
             <Link to="/dashboard?tab=profile">
               <Dropdown.Item>Profile</Dropdown.Item>
