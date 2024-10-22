@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Navigate, Outlet } from "react-router-dom";
 const OnlyAdminPrivateRoute = () => {
   const { currentuser } = useSelector((state) => state.user);
-  return currentuser && currentuser.rest.isAdmin ? (
+  return currentuser && currentuser.isAdmin ? (
     <Outlet />
   ) : (
     <Navigate to="/signin" />

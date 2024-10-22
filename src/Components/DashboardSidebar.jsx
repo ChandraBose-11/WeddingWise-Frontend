@@ -31,14 +31,14 @@ const DashboardSidebar = () => {
             <Sidebar.Item
               active={tab === "profile"}
               icon={HiUser}
-              label={currentuser.rest.isAdmin ? "Admin":"User"}
+              label={currentuser.isAdmin ? "Admin":"User"}
               labelColor="dark"
               as="div"
             >
               Profile
             </Sidebar.Item>
           </Link>
-          {currentuser.rest.isAdmin && (
+          {currentuser.isAdmin && (
            <Link to="/create-post">
              <Sidebar.Item
               active={tab === "posts"}
