@@ -31,7 +31,7 @@ const Header = () => {
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white "
       >
-        <span className="px-2 py-1 bg-gradient-to-r from-cyan-800 via-teal-600 to-blue-700 rounded-lg text-white">
+        <span className="px-2 py-1 bg-gradient-to-r from-purple-700  to-pink-600 rounded-lg text-white">
           WeddingWise-Management
         </span>
       </Link>
