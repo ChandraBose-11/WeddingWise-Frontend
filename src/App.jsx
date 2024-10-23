@@ -1,17 +1,15 @@
 import React from "react";
+import { ToastContainer } from "react-toastify";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import FooterCom from "./Components/Footer";
 import PrivateRoute from "./Components/PrivateRoute";
-import OnlyAdminPrivateRoute from "./Components/OnlyAdminPrivateRoute";
 // pages import section:
 import About from "./Pages/About";
 import Home from "./Pages/Home";
 import Signin from "./Pages/Signin";
 import Signup from "./Pages/Signup";
 import Dashboard from "./Pages/Dashboard";
-import CreatePost from "./Pages/CreatePost";
-import Event from "./Pages/Event";
 import WeddingVenues from "./Pages/WeddingVenues";
 import WeddingFarmHouse from "./Pages/WeddingFarmHouse";
 import BanquetHalls from "./Pages/BanquetHalls";
@@ -48,6 +46,7 @@ import PageNotFound from "./Pages/PageNotFound";
 
 const App = () => {
   return (
+    <div>
     <BrowserRouter>
       <Header />
       <Routes>
@@ -56,11 +55,7 @@ const App = () => {
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
         <Route element={<PrivateRoute />}>
-          <Route path="/event" element={<Event />} />
           <Route path="/dashboard" element={<Dashboard />} />
-        </Route>
-        <Route element={<OnlyAdminPrivateRoute />}>
-          <Route path="/create-post" element={<CreatePost />} />
         </Route>
         <Route path="*" element={<PageNotFound />} />
         {/* //WeddingVenues pages */}
@@ -104,6 +99,7 @@ const App = () => {
     
       <FooterCom />
     </BrowserRouter>
+    </div>
   );
 };
 

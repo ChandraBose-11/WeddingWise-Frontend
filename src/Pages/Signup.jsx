@@ -1,29 +1,27 @@
-import { Alert, Button, Label, Spinner, TextInput } from "flowbite-react";
 import React, { useState } from "react";
+import { Button, Card, Label, TextInput } from "flowbite-react";
 import { Link, useNavigate } from "react-router-dom";
-import { HiInformationCircle } from "react-icons/hi";
+import { useDispatch } from "react-redux";
+import {
+  signupFailure,
+  signupStart,
+  signupSuccess,
+} from "../Redux/Slice/userSlice";
 import OAuth from "../Components/OAuth";
 
 const Signup = () => {
   const [formData, setFormData] = useState({});
-  const [loading, setLoading] = useState(false);
-  const [errormessage, setErrormessage] = useState(null);
+  const dispatch = useDispatch();
   const navigate = useNavigate();
 
   const handleChange = (e) => {
-    // console.log(e.target.value);
     setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
-    // console.log(formData);
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!formData.username || !formData.email || !formData.password) {
-      return setErrormessage("Please fill out the fields");
-    }
     try {
-      setLoading(true);
-      setErrormessage(null);
+      dispatch(signupStart());
       const response = await fetch(
         "https://weddingwise-backend-f9kh.onrender.com/api/auth/register-user",
         {
@@ -35,41 +33,44 @@ const Signup = () => {
         }
       );
       const data = await response.json();
+
       if (data.success === false) {
-        return setErrormessage(data.message);
+        return dispatch(signupFailure(data.message));
       }
       if (response.ok) {
+        dispatch(signupSuccess(data));
         navigate("/signin");
       }
     } catch (error) {
-      setErrormessage(error.message);
-      setLoading(false);
+      dispatch(signupFailure(error.message));
     }
   };
 
   return (
-    <div className="min-h-screen pt-20 bg-red-100  dark:bg-black">
-      <div className="flex p-3 max-w-3xl mx-auto flex-col md:flex-row md:items-center gap-5">
-        <div className="flex-1">
-          <div className="font-bold dark:text-white text-4xl">
-            <span className="px-2 py-1 bg-gradient-to-r from-violet-600 via-fuchsia-700 to-pink-500 rounded-lg text-white">
-              Wedding-Wise
-            </span>
-          </div>
-          <p className="text-sm mt-6">
-            You can Signup with your Email and password or you can use the
-            Google.
+    <div className="min-h-screen mt-20">
+      <div className="flex p-3 max-w-5xl mx-auto flex-col md:flex-row md:items-center gap-10">
+      <div className="flex-1 fade-in-text w-full h-full">
+          <div className="font-bold dark:text-white text-4xl mt-9 ">
+            <Card className=" shadow-2xl dark:shadow-neutral-700 bg-gradient-to-r from-cyan-800 via-teal-600 to-blue-700 rounded-lg text-white text-center ">
+              WeddingWise-Management
+              
+            </Card>
+            <p className="mt-5 text-xl p-1">
+            You can sign up with your Email and password or you can use the <span><img src="https://cdn.usbrandcolors.com/images/logos/google-logo.svg" alt="Google" className="w-28 h-10 inline"/></span>
           </p>
+          </div>
+          
         </div>
-        <div className="flex-1">
+        <Card className="flex-1 fade-in-text-1 shadow-2xl dark:shadow-neutral-700">
           <form className="flex flex-col gap-4" onSubmit={handleSubmit}>
             <div>
               <Label value="Username" />
               <TextInput
                 type="text"
-                placeholder="Enter your UserName"
+                placeholder="Enter your User Name"
                 id="username"
                 onChange={handleChange}
+                required
               />
             </div>
             <div>
@@ -79,54 +80,31 @@ const Signup = () => {
                 placeholder="name@company.com"
                 id="email"
                 onChange={handleChange}
+                required
               />
             </div>
             <div>
               <Label value="Password" />
               <TextInput
                 type="password"
-                placeholder="Enter your Password"
+                placeholder="Enter Your Password"
                 id="password"
                 onChange={handleChange}
+                required
               />
             </div>
-            <Button
-              gradientDuoTone="purpleToPink"
-              type="submit"
-              disabled={loading}
-            >
-              {loading ? (
-                <>
-                  <Spinner
-                    color="purple"
-                    aria-label="Purple spinner example"
-                    size="sm"
-                  />
-                  <span className="pl-3">Loading...</span>
-                </>
-              ) : (
-                "Sign Up"
-              )}
+            <Button gradientDuoTone="purpleToPink" type="submit" pill className='hover:scale-105'>
+              Sign Up
             </Button>
-            <OAuth/>
+            <OAuth />
           </form>
-          <div className="flex gap-2 text-sm mt-6">
+          <div className="flex gap-2 mt-5 text-lg">
             <span>Already Have An Account ?</span>
-            <Link to="/signin" className="text-blue-600">
-              SignIn
+            <Link to="/signin" className="text-blue-500 text-lg hover:scale-125 mb-0">
+              Sign In
             </Link>
           </div>
-          {errormessage && (
-            <Alert
-              color="failure"
-              withBorderAccent
-              icon={HiInformationCircle}
-              className="mt-5"
-            >
-              <span className="font-medium me-2">🤖OOPS!</span> &nbsp;{errormessage}
-            </Alert>
-          )}
-        </div>
+        </Card>
       </div>
     </div>
   );

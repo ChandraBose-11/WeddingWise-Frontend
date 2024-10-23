@@ -4,8 +4,10 @@ import { AiFillGoogleCircle } from 'react-icons/ai';
 import { useDispatch } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { app } from '../firebase';
-import { signInFailure, signInSuccess } from '../Redux/Slice/userSlice';
+import { signinSuccess,signinFailure } from '../Redux/Slice/userSlice';
 import { GoogleAuthProvider, getAuth, signInWithPopup } from 'firebase/auth';
+
+
 const OAuth = () => {
     const auth = getAuth(app)
    const dispatch = useDispatch()
@@ -31,18 +33,20 @@ const OAuth = () => {
         const user={...data.rest}
         if(res.ok){
           localStorage.setItem("Token",data.token)
-            dispatch(signInSuccess(user))
+            dispatch(signinSuccess(user))
             navigate('/')
+            //console.log(user);
         }
       } catch (error) {
-        dispatch(signInFailure(error.message))
+        dispatch(signinFailure(error.message))
       }
    }
     return (
-       <Button type='button' gradientDuoTone="purpleToPink" onClick={handleSubmit} >
+       <Button type='button' gradientDuoTone="cyanToBlue" onClick={handleSubmit} pill className='hover:scale-105'>
         <AiFillGoogleCircle className='w-6 h-6 mr-2'/>
         Continue with Google
        </Button>
     );
 };
+
 export default OAuth;

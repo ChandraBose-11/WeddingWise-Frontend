@@ -1,27 +1,28 @@
-import { Alert, Button, Modal, TextInput } from "flowbite-react";
-import React, { useEffect, useRef, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
 import {
   getDownloadURL,
   getStorage,
   ref,
   uploadBytesResumable,
 } from "firebase/storage";
+import { Alert, Button, TextInput } from "flowbite-react";
+import React, { useEffect, useRef, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { app } from "../firebase";
 import { CircularProgressbar } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
 import { HiInformationCircle } from "react-icons/hi";
+import { Modal } from "flowbite-react";
 import { HiOutlineExclamationCircle } from "react-icons/hi";
 import {
   signOutSuccess,
   updateFailure,
   updateStart,
   updateSuccess,
+  deleteUserFailure,
   deleteUserStart,
   deleteUserSuccess,
-  deleteUserFailure,
 } from "../Redux/Slice/userSlice";
-import { Link } from "react-router-dom";
+
 
 const DashboardProfile = () => {
   const dispatch = useDispatch();
@@ -30,12 +31,12 @@ const DashboardProfile = () => {
   const [imageFileUrl, setImageFileUrl] = useState(null);
   const [imageFileUploadProgress, setImageFileUploadProgress] = useState(null);
   const [imageFileUploadError, setImageFileUploadError] = useState(null);
-  const [formData, setFormdata] = useState({});
+  const [formData, setFormData] = useState({});
   const [imageFileUploading, setImageFileUploading] = useState(false);
   const [updateUserSuccess, setUpdateUserSuccess] = useState(null);
   const [updateUserError, setUpdateUserError] = useState(null);
   const [showModal, setShowModal] = useState(false);
-  const filepickerRef = useRef();
+  const filePickerRef = useRef();
 
   //onchange in the image uploading
   const handleImageChange = (e) => {
@@ -45,7 +46,7 @@ const DashboardProfile = () => {
       setImageFileUrl(URL.createObjectURL(file));
     }
   };
-
+  
   //uploading process
   useEffect(() => {
     if (imageFile) {
@@ -53,10 +54,10 @@ const DashboardProfile = () => {
     }
   }, [imageFile]);
 
-  // Firebase image upload and storage part
+  //firbase image upload and storage part
   const uploadImage = async () => {
-    setImageFileUploading(true); //loading
-    setImageFileUploadError(null); //error handling
+    setImageFileUploading(true);
+    setImageFileUploadError(null);
     const storage = getStorage(app);
     const fileName = new Date().getTime() + imageFile.name;
     const storageRef = ref(storage, fileName);
@@ -66,11 +67,11 @@ const DashboardProfile = () => {
       (snapshot) => {
         const progress =
           (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-        setImageFileUploadProgress(progress.toFixed(0)); //10.58
+        setImageFileUploadProgress(progress.toFixed(0)); //10.6794764
       },
       (error) => {
         setImageFileUploadError(
-          "Could not upload the image(File size must be less than 2MB"
+          "Could not upload the image (File size must be less than 2MB"
         );
         setImageFileUrl(null);
         setImageFileUploadProgress(null);
@@ -80,7 +81,7 @@ const DashboardProfile = () => {
       () => {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           setImageFileUrl(downloadURL);
-          setFormdata({ ...formData, profilePicture: downloadURL });
+          setFormData({ ...formData, profilePicture: downloadURL });
           setImageFileUploading(false);
         });
       }
@@ -88,20 +89,19 @@ const DashboardProfile = () => {
   };
   //onchange in the input fields
   const handleChange = (e) => {
-    setFormdata({ ...formData, [e.target.id]: e.target.value });
+    setFormData({ ...formData, [e.target.id]: e.target.value });
   };
-
   //updating user
   const handleSubmit = async (e) => {
     e.preventDefault();
     setUpdateUserError(null);
     setUpdateUserSuccess(null);
     if (Object.keys(formData).length === 0) {
-      setUpdateUserError("NO Changes Made");
+      setUpdateUserError("No Changes Made");
       return;
     }
     if (imageFileUploading) {
-      setUpdateUserError("Please wait while the image is uploading ");
+      setUpdateUserError("Please wait while the image is uploading");
       return;
     }
     try {
@@ -126,16 +126,17 @@ const DashboardProfile = () => {
         setUpdateUserSuccess("User Profile Updated Successfully");
       }
     } catch (error) {
+      console.log(error);
       dispatch(updateFailure(error.message));
       setUpdateUserError(error.message);
     }
   };
-  //Signout user
+  //signout
   const handleSignout = () => {
     dispatch(signOutSuccess());
     localStorage.removeItem("Token");
   };
-  // Delete user
+  //delete user
   const handleDelete = async () => {
     setShowModal(false);
     try {
@@ -160,20 +161,21 @@ const DashboardProfile = () => {
       dispatch(deleteUserFailure(error.message));
     }
   };
+
   return (
-    <div className="max-w-lg mx-auto p-4 w-full  bg-red-100 dark:bg-black">
-      <h1 className="my-7 text-center font-semibold text-4xl">ProFile</h1>
+    <div className="max-w-lg mx-auto p-4 w-full">
+      <h1 className="my-7 text-center font-semibold text-4xl">Profile</h1>
       <form className="flex flex-col gap-5" onSubmit={handleSubmit}>
         <input
           type="file"
           accept="image/*"
-          ref={filepickerRef}
+          ref={filePickerRef}
           onChange={handleImageChange}
           hidden
         />
         <div
-          className=" relative w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full"
-          onClick={() => filepickerRef.current.click()}
+          className="relative w-32 h-32 self-center cursor-pointer shadow-md overflow-hidden rounded-full"
+          onClick={() => filePickerRef.current.click()}
         >
           {imageFileUploadProgress && (
             <CircularProgressbar
@@ -197,17 +199,16 @@ const DashboardProfile = () => {
           <img
             src={imageFileUrl || currentuser.profilePicture}
             alt="user"
-            className={`rounded-full w-full h-full object-cover border-8 border-[lightgray]
-              ${
-                imageFileUploadProgress &&
-                imageFileUploadProgress < 100 &&
-                "opacity-60"
-              }`}
+            className={`rounded-full w-full h-full object-cover border-8 border-[lightgray] ${
+              imageFileUploadProgress &&
+              imageFileUploadProgress < 100 &&
+              "opacity-60"
+            }`}
           />
         </div>
         {imageFileUploadError && (
           <Alert color="failure" icon={HiInformationCircle} className="mt-5">
-            <span className="font-medium me-2">🤖OOPS!</span> &nbsp;
+            <span className="font-medium me-2">⚠️ OOPS!</span>
             {imageFileUploadError}
           </Alert>
         )}
@@ -227,8 +228,8 @@ const DashboardProfile = () => {
         />
         <TextInput
           type="password"
-          id="Password"
-          placeholder="*********"
+          id="password"
+          placeholder="********"
           onChange={handleChange}
         />
         <Button
@@ -238,18 +239,6 @@ const DashboardProfile = () => {
         >
           {loading ? "loading..." : "update"}
         </Button>
-        {console.log(currentuser)}
-        {currentuser.isAdmin && (
-          <Link to={"/create-post"}>
-            <Button
-              type="submit"
-              gradientDuoTone="purpleToPink"
-              className="w-full"
-            >
-              Create Post
-            </Button>
-          </Link>
-        )}
       </form>
       <div className="text-red-600 flex justify-between mt-5">
         <span className="cursor-pointer" onClick={() => setShowModal(true)}>
@@ -261,20 +250,14 @@ const DashboardProfile = () => {
       </div>
       {updateUserSuccess && (
         <Alert color="success" icon={HiInformationCircle} className="mt-5">
-          <span className="font-medium me-2">😎Yaaa!</span>
+          <span className="font-medium me-2">😊 Yaaa!</span>
           {updateUserSuccess}
         </Alert>
       )}
       {updateUserError && (
         <Alert color="failure" icon={HiInformationCircle} className="mt-5">
-          <span className="font-medium me-2">🥴OOPS!</span>
+          <span className="font-medium me-2">⚠️ OOPS!</span>
           {updateUserError}
-        </Alert>
-      )}
-      {error && (
-        <Alert color="failure" icon={HiInformationCircle} className="mt-5">
-          <span className="font-medium me-2">🥴OOPS!</span>
-          {error}
         </Alert>
       )}
       <Modal
@@ -284,15 +267,16 @@ const DashboardProfile = () => {
         size="md"
       >
         <Modal.Header />
+
         <Modal.Body>
           <div className="text-center">
             <HiOutlineExclamationCircle className="h-14 w-14 text-gray-500 dark:text-gray-200 mb-4 mx-auto" />
             <h3 className="mb-5 text-lg  text-gray-500 dark:text-gray-200">
-              Are You Sure You Want To Delete This Account
+              Are you sure you want to delete this Account
             </h3>
             <div className="flex justify-center gap-4">
               <Button color="failure" onClick={handleDelete}>
-                Yes,I'm Sure
+                Yes,I'm sure
               </Button>
               <Button color="gray" onClick={() => setShowModal(false)}>
                 No,Changed My Mind

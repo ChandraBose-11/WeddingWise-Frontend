@@ -18,89 +18,87 @@ const Header = () => {
   const navigate = useNavigate();
   const { currentuser } = useSelector((state) => state.user);
   const { theme } = useSelector((state) => state.theme);
-  // console.log(currentuser);
 
-  // Signout
-  const handleSignOut = () => {
+  const handleSignout = () => {
     dispatch(signOutSuccess());
     localStorage.removeItem("Token");
     navigate("/");
   };
+
   return (
-    <Navbar className="border-t-2 border-b-4 bg-red-100 dark:bg-black">
+    <Navbar className="border-b-2 dark:bg-black fade-in-text sm:cursor-pointer relative z-40">
       <Link
         to="/"
-        className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white"
+        className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white "
       >
-        <span className="px-2 py-1  text-red-700">
-          WEDDINGWISE!!
+        <span className="px-2 py-1 bg-gradient-to-r from-cyan-800 via-teal-600 to-blue-700 rounded-lg text-white">
+          WeddingWise-Management
         </span>
       </Link>
-      <div className="flex gap-2 md:order-2">
-        <Button
-          className="w-12 h-10 hidden sm:inline"
-          gradientDuoTone="pinkToOrange"
-          pill
-          onClick={() => dispatch(toggleTheme())}
-        >
-          {theme === "light" ? <FaMoon /> : <FaSun />}
-        </Button>
+      <div className="flex gap-2 md:order-2 ">
         {currentuser ? (
           <Dropdown
+            className="w-52 ml-16 dark:bg-slate-900 text-white text-ellipsis dark:hover:bg-slate-900 z-50 relative  hover:scale-110"
             arrowIcon={false}
             inline
-             className="font-bold bg-red-100"
             label={
-              <Avatar
-                alt="user"
-                img={currentuser.profilePicture}
-                rounded
-              />
+              <Avatar alt="user" img={currentuser.profilePicture} rounded />
             }
           >
-            <Dropdown.Header >
-              <span className="block text-sm">{currentuser.username}</span>
+            <Dropdown.Header>
+              <span className="block text-lg text-ellipsis dark:text-white">
+                {currentuser.username}
+              </span>
             </Dropdown.Header>
             <Link to="/dashboard?tab=profile">
               <Dropdown.Item>Profile</Dropdown.Item>
             </Link>
             <DropdownDivider />
-            <Dropdown.Item onClick={handleSignOut}>Sign Out</Dropdown.Item>
+            <Dropdown.Item onClick={handleSignout}>Sign Out</Dropdown.Item>
           </Dropdown>
         ) : (
           <Link to="/signin">
-            <Button gradientDuoTone="pinkToOrange">SignIn</Button>
+            <Button gradientDuoTone="purpleToPink" className="hover:scale-105">
+              SignIn
+            </Button>
           </Link>
         )}
         <Navbar.Toggle />
       </div>
       <Navbar.Collapse>
-      <Navbar.Link active={path === "/"} as={"div"}>
+        <Navbar.Link active={path === "/"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
           <Link to="/">Home</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === "/weddingvenues"} as={"div"}>
+        <Navbar.Link active={path === "/weddingvenues"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
           <Link to="/weddingvenues">WeddingVenues</Link>
         </Navbar.Link>
 
-        <Navbar.Link active={path === "/planningtool"} as={"div"}>
+        <Navbar.Link active={path === "/planningtool"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
           <Link to="/planningtool">PlanningTool</Link>
         </Navbar.Link>
 
-        <Navbar.Link active={path === "/weddingVendors"} as={"div"}>
+        <Navbar.Link active={path === "/weddingVendors"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
           <Link to="/weddingVendors">WeddingVendors</Link>
         </Navbar.Link>
 
-        <Navbar.Link active={path === "/bride"} as={"div"}>
+        <Navbar.Link active={path === "/bride"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
           <Link to="/bride">Bride</Link>
         </Navbar.Link>
 
-        <Navbar.Link active={path === "/groms"} as={"div"}>
+        <Navbar.Link active={path === "/groms"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
           <Link to="/groms">Grooms</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === "/about"} as={"div"}>
+        <Navbar.Link active={path === "/about"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
           <Link to="/about">About</Link>
         </Navbar.Link>
-        
+        <Button
+          className="w-12 h-9 py-1 mt-1 hover:scale-110"
+          gradientDuoTone="purpleToPink"
+          pill
+          onClick={() => dispatch(toggleTheme())}
+        >
+          {theme === "light" ? <FaMoon /> : <FaSun />}
+        </Button>
       </Navbar.Collapse>
     </Navbar>
   );

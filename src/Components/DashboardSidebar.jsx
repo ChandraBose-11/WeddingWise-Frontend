@@ -1,59 +1,96 @@
 import React, { useEffect, useState } from "react";
 import { Sidebar } from "flowbite-react";
-import { HiArrowSmRight, HiDocumentText, HiUser } from "react-icons/hi";
+import {
+  HiArrowSmRight,
+  HiOutlineTable,
+  HiUser,
+  HiViewBoards,
+} from "react-icons/hi";
 import { Link, useLocation } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { signOutSuccess } from "../Redux/Slice/userSlice";
+import { AiFillCalendar, AiOutlineDashboard } from "react-icons/ai";
 
 const DashboardSidebar = () => {
-  const { currentuser } = useSelector((state) => state.user);
   const location = useLocation();
   const dispatch = useDispatch();
-  const [tab, setTab] = useState();
+  const [tab, setTab] = useState("");
+
   useEffect(() => {
     const urlParams = new URLSearchParams(location.search);
-    const tabUrl = urlParams.get("tab");
+    const tabUrl = urlParams.get("tab"); //tab = profile
     if (tabUrl) {
-      setTab(tabUrl); // profile
+      setTab(tabUrl); //profile
     }
   }, [location.search]);
 
-  //signout
-  const handleSignOut = () => {
+  const handleSignout = () => {
     dispatch(signOutSuccess());
     localStorage.removeItem("Token");
   };
+
   return (
-    <Sidebar className="w-full md:w-58 bg-red-100 dark:bg-black">
-      <Sidebar.Items  className="bg-red-100">
-        <Sidebar.ItemGroup className="flex flex-col gap-2">
+    <Sidebar className="w-full md:w-58">
+      <Sidebar.Items>
+        <Sidebar.ItemGroup className="flex flex-col gap-2 ">
+          <Link to="/dashboard?tab=dashboardhome">
+            <Sidebar.Item
+              active={tab === "dashboardhome"}
+              icon={AiOutlineDashboard}
+              as="div"
+              className="hover:bg-neutral-200 transition duration-300 ease-in-out"
+            >
+              DashBoard
+            </Sidebar.Item>
+          </Link>
+          <Link to="/dashboard?tab=calender">
+            <Sidebar.Item
+              active={tab === "calender"}
+              icon={AiFillCalendar}
+              as="div"
+              className="hover:bg-neutral-200 transition duration-300 ease-in-out"
+            >
+              Calender
+            </Sidebar.Item>
+          </Link>
+          <Link to="/dashboard?tab=boardslist">
+            <Sidebar.Item
+              active={tab === "boardslist"}
+              icon={HiViewBoards}
+              labelColor="dark"
+              as="div"
+              className="hover:bg-neutral-200 transition duration-300 ease-in-out"
+            >
+              Boards
+            </Sidebar.Item>
+          </Link>
+          <Link to="/dashboard?tab=tasklists">
+            <Sidebar.Item
+              active={tab === "tasklists"}
+              icon={HiOutlineTable}
+              labelColor="dark"
+              as="div"
+              className="hover:bg-neutral-200 transition duration-300 ease-in-out"
+            >
+              Task Lists
+            </Sidebar.Item>
+          </Link>
           <Link to="/dashboard?tab=profile">
             <Sidebar.Item
               active={tab === "profile"}
               icon={HiUser}
-              label={currentuser.isAdmin ? "Admin":"User"}
+              label={"User"}
               labelColor="dark"
               as="div"
+              className="hover:bg-neutral-200 transition duration-300 ease-in-out"
             >
               Profile
             </Sidebar.Item>
           </Link>
-          {currentuser.isAdmin && (
-           <Link to="/create-post">
-             <Sidebar.Item
-              active={tab === "posts"}
-              icon={HiDocumentText}
-              labelColor="dark"
-              as="div"
-            >
-             Posts
-            </Sidebar.Item>
-           </Link>
-          )}
           <Sidebar.Item
             icon={HiArrowSmRight}
-            className="cursor-pointer"
-            onClick={handleSignOut}
+            className="cursor-pointer hover:bg-neutral-200 transition duration-300 ease-in-out"
+            onClick={handleSignout}
           >
             Sign Out
           </Sidebar.Item>
