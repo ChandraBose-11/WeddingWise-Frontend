@@ -24,7 +24,7 @@ const Header = () => {
   const handleSignOut = () => {
     dispatch(signOutSuccess());
     localStorage.removeItem("Token");
-    navigate("/signin");
+    navigate("/");
   };
   return (
     <Navbar className="border-t-2 border-b-4 bg-red-100 dark:bg-black">
