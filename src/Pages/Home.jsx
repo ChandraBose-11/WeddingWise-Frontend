@@ -11,7 +11,7 @@ const Home = () => {
   };
   return (
     <div>
-      <div className="flex flex-wrap border-2 dark:bg-black bg-red-100 ">
+      <div className="flex flex-wrap border-2 dark:bg-black ">
         <div className="flex justify-center items-center sm:ml-0 mt-3">
           <img
             className="rounded-3xl max-w-md  p-3 ml-5 h-80"
@@ -44,7 +44,7 @@ const Home = () => {
         </div>
       </div>
       <br />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-secondary bg-red-100 p-5 dark:bg-black text-white">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-secondary p-5 dark:bg-black text-white">
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <Link>
             <img
@@ -178,7 +178,7 @@ const Home = () => {
         </div>
       </div>
       <br />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-secondary bg-red-100 p-5 dark:bg-black text-white">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-secondary p-5 dark:bg-black text-white">
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <Link>
             <img

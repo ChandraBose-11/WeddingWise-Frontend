@@ -13,7 +13,7 @@ const [isOpen, setIsOpen] = useState(false);
 
     return (
         <div>
-<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <Link to="#">
         <img class="p-8 rounded-t-lg h-96 max-w-96" src="https://crystallinestudio.com/blogmoreimg/13_crystalline.jpg" alt="Photography image" />
     </Link>
@@ -55,7 +55,7 @@ const [isOpen, setIsOpen] = useState(false);
         </div>
 </div>
 
-<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <Link to="#">
         <img class="p-8 rounded-t-lg h-96 max-w-96" src="https://cdn0.weddingwire.in/vendor/8273/3_2/1280/jpg/660a9150-77d8-43d6-9c1b-473068c4bd82_15_188273.webp" alt="Photography image" />
     </Link>
@@ -93,7 +93,7 @@ const [isOpen, setIsOpen] = useState(false);
     </div>
 </div>
 
-<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <Link to="#">
         <img class="p-8 rounded-t-lg h-96 max-w-96" src="https://www.bellapersonalchef.com/wp-content/uploads/2022/09/A-Look-at-Our-4-Most-Popular-Catering-Services-1080x1080-image1-632883052fafd.jpg" alt="Photography image" />
     </Link>
@@ -135,7 +135,7 @@ const [isOpen, setIsOpen] = useState(false);
     </div>
 </div>
 
-<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <Link to="#">
         <img class="p-8 rounded-t-lg h-96 max-w-96" src="https://cdn0.weddingwire.in/vendor/7145/original/1280/jpeg/img-7570_15_207145-170815274118159.webp" alt="Photography image" />
     </Link>

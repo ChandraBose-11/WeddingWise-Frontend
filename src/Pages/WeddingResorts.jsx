@@ -15,7 +15,7 @@ const WeddingResorts = () => {
   };
   return (
     <div>
-      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             class="p-8 rounded-t-lg h-96 max-w-96"
@@ -179,7 +179,7 @@ const WeddingResorts = () => {
           </div>
         </div>
       </div>
-      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             class="p-8 rounded-t-lg h-96 max-w-96"
@@ -350,7 +350,7 @@ const WeddingResorts = () => {
           </div>
         </div>
       </div>
-      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             class="p-8 rounded-t-lg h-96 max-w-96"
@@ -512,7 +512,7 @@ const WeddingResorts = () => {
           </div>
         </div>
       </div>
-      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             class="p-8 rounded-t-lg h-96 max-w-96"
@@ -675,7 +675,7 @@ const WeddingResorts = () => {
           </div>
         </div>
       </div>
-      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             class="p-8 rounded-t-lg h-96 max-w-96"

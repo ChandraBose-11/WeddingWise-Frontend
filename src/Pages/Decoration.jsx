@@ -16,7 +16,7 @@ const Decoration = () => {
   };
   return (
     <div>
-      <div className="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             className="p-8 rounded-t-lg h-96 max-w-96"
@@ -180,7 +180,7 @@ const Decoration = () => {
           </div>
         </div>
       </div>
-      <div className="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="my-2 flex flex-col lg:flex-row w-full h-max max-w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             className="p-8 rounded-t-lg h-96 max-w-96 "
@@ -347,7 +347,7 @@ const Decoration = () => {
           </div>
         </div>
       </div>
-      <div className="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="my-2 flex flex-col lg:flex-row w-full h-max max-w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             className="p-8 rounded-t-lg h-96 max-w-96"
@@ -507,7 +507,7 @@ const Decoration = () => {
           </div>
         </div>
       </div>
-      <div className="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="my-2 flex flex-col lg:flex-row w-full h-max max-w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             className="p-8 rounded-t-lg h-96 max-w-96"
@@ -669,7 +669,7 @@ const Decoration = () => {
           </div>
         </div>
       </div>
-      <div className="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+      <div className="my-2 flex flex-col lg:flex-row w-full h-max max-w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
         <Link to="#">
           <img
             className="p-8 rounded-t-lg h-96 max-w-96"

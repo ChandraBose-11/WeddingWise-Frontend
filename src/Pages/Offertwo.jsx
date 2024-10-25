@@ -10,7 +10,7 @@ const Offertwo = () => {
   
     return (
         <div>
-<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <Link to="#">
         <img class="p-8 rounded-t-lg h-96 max-w-96" src="https://cdn0.weddingwire.in/vendor/9168/3_2/960/jpg/wedding-photography-studiosix-by-chennai-wedding-photography-couple-shot-23_15_79168-158392634222558.jpeg" alt="Photography image" />
     </Link>
@@ -51,7 +51,7 @@ const Offertwo = () => {
         </div>
 </div>
 
-<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full  border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <Link to="#">
         <img class="p-8 rounded-t-lg h-96 max-w-96" src="https://cdn0.weddingwire.in/vendor/8602/3_2/960/jpg/weddingvenues-bhushan-banquet-hall-banquethall-3_15_428602-166737477526098.webp" alt="Photography image" />
     </Link>
@@ -88,7 +88,7 @@ const Offertwo = () => {
     </div>
 </div>
 
-<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full   bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full   border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <Link to="#">
         <img class="p-8 rounded-t-lg h-96 max-w-96" src="https://cdn0.weddingwire.in/vendor/5416/3_2/640/jpg/catering-for-your-event_v8.jpeg" alt="Photography image" />
     </Link>
@@ -130,7 +130,7 @@ const Offertwo = () => {
     </div>
 </div>
 
-<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full   bg-red-100 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+<div class="my-2 flex flex-col lg:flex-row w-full h-max max-w-full   border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     <Link to="#">
         <img class="p-8 rounded-t-lg h-96 max-w-96" src="https://cdn0.weddingwire.in/vendor/1523/original/1280/jpg/87287680-501495344115338-1339884282860011520-o_15_231523-158831127988468.webp" alt="Photography image" />
     </Link>

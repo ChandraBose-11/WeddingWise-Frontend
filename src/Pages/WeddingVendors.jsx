@@ -3,13 +3,13 @@ import { Link } from "react-router-dom";
 const WeddingVendors = () => {
   return (
     <div>
-      <div className="flex flex-wrap border-2 dark:bg-black bg-red-100">
+      <div className="flex flex-wrap border-2 dark:bg-black">
         <div className="flex-col ml-2 flex-grow">
           <h1 className="font-bold text-4xl  m-2">WEDDING-VENDORS</h1>
         </div>
       </div>
       <br />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-secondary bg-red-100 p-5 dark:bg-black text-white">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-secondary p-5 dark:bg-black text-white">
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <Link>
             <img
@@ -144,7 +144,7 @@ const WeddingVendors = () => {
         </div>
       </div>
       <br />
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-secondary bg-red-100 p-5 dark:bg-black text-white">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-secondary p-5 dark:bg-black text-white">
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
           <Link>
             <img
