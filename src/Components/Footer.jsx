@@ -10,7 +10,7 @@ const FooterComp = () => {
           <div>
             <Footer.Brand
               href="#"
-              src="./logo.png"
+              src="https://i.pinimg.com/originals/bc/6d/ba/bc6dba1583b51782a61bdfc2b2daf181.jpg"
               alt="Logo"
               name="WeddingWise-Management"
             />
@@ -36,12 +36,6 @@ const FooterComp = () => {
                 </Footer.Link>
                 <Footer.Link href="https://ant.design/" target="_blank">
                   Ant Design
-                </Footer.Link>
-                <Footer.Link href="https://www.npmjs.com/package/react-beautiful-dnd" target="_blank">
-                  React Beautiful DnD
-                </Footer.Link>
-                <Footer.Link href="https://www.npmjs.com/package/react-big-calendar" target="_blank">
-                  React Big Calendar
                 </Footer.Link>
                 <Footer.Link href="https://www.npmjs.com/package/jspdf" target="_blank">
                   jsPDF
@@ -100,16 +94,16 @@ const FooterComp = () => {
         <div className="w-full sm:flex sm:items-center sm:justify-between font-bold">
           <Footer.Copyright
             href="#"
-            by="Praveen™"
+            by="ChandraBose™"
             year={new Date().getFullYear()}
           />
           <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
             <Footer.Icon
-              href="https://github.com/Hawkpraveen"
+              href="https://github.com/ChandraBose-11"
               icon={BsGithub}
             />
             <Footer.Icon
-              href="https://www.linkedin.com/in/praveen-kumar-496255190/"
+              href="https://www.linkedin.com/in/chandra-bose-b838142a1/"
               icon={BsLinkedin}
             />
           </div>
