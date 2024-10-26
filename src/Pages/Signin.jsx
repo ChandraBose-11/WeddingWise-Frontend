@@ -29,7 +29,7 @@ const Signin = () => {
     try {
       dispatch(signinStart());
       const response = await fetch(
-        "https://weddingwise-backend-f9kh.onrender.com/api/auth/login-user",
+        "http://localhost:5000/api/auth/login-user",
         {
           method: "POST",
           headers: {

@@ -106,13 +106,15 @@ const DashboardProfile = () => {
     }
     try {
       dispatch(updateStart());
+      console.log(currentuser._id);
+      
       const response = await fetch(
-        `https://weddingwise-backend-f9kh.onrender.com/api/user/update/${currentuser._id}`,
+        `http://localhost:5000/api/user/update/${currentuser._id}`,
         {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
-            token: localStorage.getItem("Token"),
+            "Authorization":localStorage.getItem('Token')
           },
           body: JSON.stringify(formData),
         }
@@ -142,12 +144,12 @@ const DashboardProfile = () => {
     try {
       dispatch(deleteUserStart());
       const response = await fetch(
-        `https://weddingwise-backend-f9kh.onrender.com/api/user/delete/${currentuser._id}`,
+        `http://localhost:5000/api/user/delete/${currentuser._id}`,
         {
           method: "DELETE",
           headers: {
             "Content-Type": "application/json",
-            token: localStorage.getItem("Token"),
+            "Authorization":localStorage.getItem('Token')
           },
         }
       );
