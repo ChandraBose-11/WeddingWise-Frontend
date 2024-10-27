@@ -109,6 +109,7 @@ const FooterComp = () => {
           </div>
         </div>
       </div>
+      
     </Footer>
   );
 };

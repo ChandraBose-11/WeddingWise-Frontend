@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { Link, useNavigate } from "react-router-dom";
 
-const Home = () => {
+const HomesPages = () => {
   const [searchteam, setSearchteam] = useState("");
   const navigate = useNavigate();
   const handleSearch = (event) => {
@@ -315,4 +315,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default HomesPages;

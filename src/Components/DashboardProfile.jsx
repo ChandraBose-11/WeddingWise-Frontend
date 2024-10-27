@@ -236,7 +236,7 @@ const DashboardProfile = () => {
         />
         <Button
           type="submit"
-          gradientDuoTone="purpleToPink"
+          gradientDuoTone="pinkToOrange"
           disabled={loading || imageFileUploading}
         >
           {loading ? "loading..." : "update"}

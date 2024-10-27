@@ -93,7 +93,7 @@ const Signup = () => {
                 required
               />
             </div>
-            <Button gradientDuoTone="purpleToPink" type="submit" pill className='hover:scale-105'>
+            <Button gradientDuoTone="pinkToOrange" type="submit" pill className='hover:scale-105'>
               Sign Up
             </Button>
             <OAuth />

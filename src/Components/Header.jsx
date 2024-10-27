@@ -31,8 +31,8 @@ const Header = () => {
         to="/"
         className="self-center whitespace-nowrap text-sm sm:text-xl font-semibold dark:text-white "
       >
-        <span className="px-2 py-1 bg-gradient-to-r from-purple-700  to-pink-600 rounded-lg text-white">
-          WeddingWise-Management
+        <span className="px-2 py-1 bg-gradient-to-r from-pink-600 to-orange-500 rounded-lg text-white">
+          Wedding-Wise Management
         </span>
       </Link>
       <div className="flex gap-2 md:order-2 ">
@@ -41,8 +41,12 @@ const Header = () => {
             className="w-52 ml-16 dark:bg-slate-900 text-white text-ellipsis dark:hover:bg-slate-900 z-50 relative  hover:scale-110"
             arrowIcon={false}
             inline
-            label={
-              <Avatar alt="user" img={currentuser.profilePicture} rounded />
+            label={ 
+              <Avatar
+                alt="user"
+                img={currentuser.profilePicture}
+                rounded
+              />
             }
           >
             <Dropdown.Header>
@@ -50,52 +54,37 @@ const Header = () => {
                 {currentuser.username}
               </span>
             </Dropdown.Header>
-            <Link to="/dashboard?tab=profile">
-              <Dropdown.Item>Profile</Dropdown.Item>
+            <Link to="/dashboard?tab=profile" >
+              <Dropdown.Item >Profile</Dropdown.Item>
             </Link>
             <DropdownDivider />
             <Dropdown.Item onClick={handleSignout}>Sign Out</Dropdown.Item>
           </Dropdown>
         ) : (
           <Link to="/signin">
-            <Button gradientDuoTone="purpleToPink" className="hover:scale-105">
-              SignIn
-            </Button>
+            <Button gradientDuoTone="pinkToOrange" className="hover:scale-105">SignIn</Button>
           </Link>
         )}
         <Navbar.Toggle />
       </div>
+
       <Navbar.Collapse>
         <Navbar.Link active={path === "/"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
           <Link to="/">Home</Link>
         </Navbar.Link>
-        <Navbar.Link active={path === "/weddingvenues"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
-          <Link to="/weddingvenues">WeddingVenues</Link>
-        </Navbar.Link>
-
-        <Navbar.Link active={path === "/planningtool"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
-          <Link to="/planningtool">PlanningTool</Link>
-        </Navbar.Link>
-
-        <Navbar.Link active={path === "/weddingVendors"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
-          <Link to="/weddingVendors">WeddingVendors</Link>
-        </Navbar.Link>
-
-        <Navbar.Link active={path === "/bride"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
-          <Link to="/bride">Bride</Link>
-        </Navbar.Link>
-
-        <Navbar.Link active={path === "/groms"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
-          <Link to="/groms">Grooms</Link>
-        </Navbar.Link>
-        <Navbar.Link active={path === "/about"} as={"div"} className="mt-2 text-lg text-neutral-800 hover:scale-110">
+        <Navbar.Link
+          active={path === "/about"}
+          as={"div"}
+          className="mt-2 text-lg mb-2 text-neutral-800 hover:scale-110"
+        >
           <Link to="/about">About</Link>
         </Navbar.Link>
         <Button
           className="w-12 h-9 py-1 mt-1 hover:scale-110"
-          gradientDuoTone="purpleToPink"
+          gradientDuoTone="pinkToOrange"
           pill
           onClick={() => dispatch(toggleTheme())}
+
         >
           {theme === "light" ? <FaMoon /> : <FaSun />}
         </Button>
@@ -103,4 +92,5 @@ const Header = () => {
     </Navbar>
   );
 };
+
 export default Header;

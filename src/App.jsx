@@ -1,12 +1,11 @@
 import React from "react";
-import { ToastContainer } from "react-toastify";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Header from "./Components/Header";
 import FooterCom from "./Components/Footer";
 import PrivateRoute from "./Components/PrivateRoute";
 // pages import section:
 import About from "./Pages/About";
-import Home from "./Pages/Home";
+
 import Signin from "./Pages/Signin";
 import Signup from "./Pages/Signup";
 import Dashboard from "./Pages/Dashboard";
@@ -42,15 +41,19 @@ import Offerone from "./Pages/Offerone";
 import Offertwo from "./Pages/Offertwo";
 import Offerthree from "./Pages/Offerthree";
 import PageNotFound from "./Pages/PageNotFound";
-
+import ProviderHandler from "./Context/AppContext";
+import HomesPages from "./Pages/HomesPages";
+import Home from "./Components/Home";
 
 const App = () => {
   return (
     <div>
+<ProviderHandler>
     <BrowserRouter>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home/>} />
+        <Route path="/homepages" element={<HomesPages />} />
         <Route path="/signin" element={<Signin />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/about" element={<About />} />
@@ -61,7 +64,7 @@ const App = () => {
         {/* //WeddingVenues pages */}
         <Route path={"/weddingvenues"} element={<WeddingVenues />} />
         <Route path={"/weddingfarmhouse"} element={<WeddingFarmHouse />} />
-        <Route path={"/restaurant"} element={<Restaurant />} />
+        <Route path={"/restaurant/:id"} element={<Restaurant />} />
         <Route path={"/banquethalls"} element={<BanquetHalls />} />
         <Route path={"/marriagegarden"} element={<MarriageGarden />} />
         <Route path={"/weddingresort"} element={<WeddingResorts />} />
@@ -99,6 +102,7 @@ const App = () => {
     
       <FooterCom />
     </BrowserRouter>
+    </ProviderHandler>
     </div>
   );
 };
