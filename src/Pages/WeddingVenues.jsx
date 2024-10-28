@@ -32,7 +32,7 @@ navigate(`/restaurant/${id}`)
       </div>
       <br />
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 bg-secondary p-5 dark:bg-black text-white">
-        <div>
+       
           {malls.length>0 ? (
             malls.map((mall)=>(
         <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
@@ -75,7 +75,7 @@ navigate(`/restaurant/${id}`)
           </div>
         </div>
           ))):<h1>no malls</h1>}
-        </div>
+        
       </div>
       <br />
   </div>
