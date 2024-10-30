@@ -44,6 +44,7 @@ import PageNotFound from "./Pages/PageNotFound";
 import ProviderHandler from "./Context/AppContext";
 import HomesPages from "./Pages/HomesPages";
 import Home from "./Components/Home";
+import MallEdit from "./Pages/MallEdit";
 
 const App = () => {
   return (
@@ -65,6 +66,7 @@ const App = () => {
         <Route path={"/weddingvenues"} element={<WeddingVenues />} />
         <Route path={"/weddingfarmhouse"} element={<WeddingFarmHouse />} />
         <Route path={"/restaurant/:id"} element={<Restaurant />} />
+        <Route path={"/malledit/:id"} element={<MallEdit/>}/>
         <Route path={"/banquethalls"} element={<BanquetHalls />} />
         <Route path={"/marriagegarden"} element={<MarriageGarden />} />
         <Route path={"/weddingresort"} element={<WeddingResorts />} />
